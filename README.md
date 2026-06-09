@@ -119,3 +119,24 @@ When a PR is created targeting master, it will be built and deployed by Netlify.
 The URL will be indicated in a Comment in the PR.
 
 Once the PR is merged, it will automatically be released.
+```mermaid
+flowchart TD
+    A([Начало]) --> B[/Введите a, b, h/]
+    B --> C[Печать заголовка: "x" и "f(x)"]
+    C --> D[Печать разделителя]
+    D --> E[x = a]
+    E --> F{x <= b?}
+    F -- Да --> G[Вычислить f(x)]
+    G --> H[/Вывод x и f(x)/]
+    H --> I[x = x + h]
+    I --> F
+    F -- Нет --> J([Конец])
+
+    subgraph G [Подграф: вычисление f(x)]
+        G1{Определить диапазон x}
+        G1 -- "x <= -5" --> G2[вернуть x + 4]
+        G1 -- "-5 < x <= -1" --> G3[вернуть 1.25*x^2 + 5.75*x + 6.5]
+        G1 -- "-1 < x < 1" --> G4[вернуть x + 3]
+        G1 -- "x >= 1" --> G5[вернуть -0.5*x + 4.5]
+    end
+```
